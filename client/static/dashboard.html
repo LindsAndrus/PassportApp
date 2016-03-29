@@ -1,0 +1,29 @@
+<h2>'Sup {{traveler.name}}</h2>
+
+<h4>Places I have been:</h4>
+<div ng-repeat="city in placesbeen">
+  City: {{city.name}}, Country: {{city.country}}
+  Latitude: {{city.latitude}} / Longitude: {{city.longitude}}
+  Visited: {{city.dateVisited}}
+</div>
+
+<h4>Places I would love to go to:</h4>
+<div ng-repeat="city in placesdesire">
+  City: {{city.name}}, Country: {{city.country}}
+  Latitude: {{city.latitude}} / Longitude: {{city.longitude}}
+</div>
+
+<h4>Somewhere new right now? Check in!</h4>
+<div ng-include="static/locator.html">
+
+</div>
+<form>
+  <input type="hidden" name="latandlong">
+  <input type="submit" value="Check In!">
+</form>
+
+<h4>Been to a city you'd like to add? Or want to research a city you've never been to?</h4>
+<form>
+  City: <input type="text" name="city">
+  <input type="submit" value="Search">
+</form>
