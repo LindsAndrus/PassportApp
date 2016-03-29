@@ -1,0 +1,21 @@
+{
+  "name": "basic_mongoose_app",
+  "description": "",
+  "main": "",
+  "authors": [
+    "LindsAndrus <LindsAndrus@hotmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/LindsAndrus/testdojo",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.2"
+  }
+}

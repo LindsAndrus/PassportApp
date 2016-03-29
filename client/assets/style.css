@@ -1,0 +1,5 @@
+.container{
+  background-image: url(assets\images\travel_the_world.jpg);
+  background-size: cover;
+  color: blue;
+}
