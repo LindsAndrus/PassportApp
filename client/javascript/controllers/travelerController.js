@@ -1,6 +1,6 @@
 console.log('made it to front-end controller');
 
-myApp.controller('travelers', ['$scope', '$location''travelersFactory', function ($scope, $location travelersFactory){
+myApp.controller('travelers', ['$scope', '$location','travelersFactory', function ($scope, $location, travelersFactory){
   $scope.travelers = [];
   travelersFactory.getTraveler(function(data){
     $scope.travelers = data;
