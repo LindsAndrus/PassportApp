@@ -1,5 +1,37 @@
-.container{
-  background-image: url(assets\images\travel_the_world.jpg);
-  background-size: cover;
-  color: blue;
+*{
+	margin:0px;
+	padding: 0px;
 }
+body{
+  
+	position: relative;
+	background: #000 url("./images/kayak.jpg") center fixed;
+	background-size: cover;
+	overflow: scroll;
+	margin:0;
+}
+
+h5, h2, p, form{
+	text-align: center;
+	font-family: 'Poiret One', cursive;
+	margin-top: 3%;
+}
+
+h2{
+	font-size: 100px;
+}
+
+h5{
+	font-size: 25px;
+}
+
+form{
+	font-style: bold;
+	border: 2px solid black;
+	width: 40%;
+	background-color: transparent;
+	margin-left: 30%;
+
+}
+
+
