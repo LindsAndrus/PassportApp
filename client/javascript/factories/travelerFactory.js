@@ -1,4 +1,4 @@
-console.log('made it to factory');
+console.log('made it to traveler factory');
 
 var myApp = angular.module('myApp');
 
