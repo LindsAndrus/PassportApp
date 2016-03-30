@@ -1,8 +1,8 @@
 function success(position) {
   var mapcanvas = document.createElement('div');
   mapcanvas.id = 'mapcontainer';
-  mapcanvas.style.height = '400px';
-  mapcanvas.style.width = '600px';
+  mapcanvas.style.height = '300px';
+  mapcanvas.style.width = '560px';
 
   document.querySelector('article').appendChild(mapcanvas);
 
