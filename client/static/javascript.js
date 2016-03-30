@@ -8,7 +8,9 @@ document.querySelector('article').appendChild(mapcanvas);
 
   var coords = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
   var currentLat = position.coords.latitude;
+  document.getElementById("myLat").value = currentLat
   var currentLng =  position.coords.longitude;
+  document.getElementById("myLng").value = currentLng
   console.log(currentLat, currentLng);
 
   var options = {
