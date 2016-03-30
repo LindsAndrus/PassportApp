@@ -8,11 +8,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+<<<<<<< HEAD
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
     <script src= "angular/angular.js"></script>
     <script src="static/javascript.js"></script>" charset="utf-8"></script>
     <script src= "angular-route/angular-route.js"></script>
     <!-- <script src= "static/javascript.js"></script> -->
+    <!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.js"></script>
+    <!-- <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script> -->
+    <script src= "angular/angular.js"></script>
+    <script src= "angular-route/angular-route.js")></script>
+    <script src= "static/javascript.js"></script>
     <script src= "javascript/config.js"></script>
     <script src= "javascript/factories/travelerFactory.js"></script>
     <script src= "javascript/controllers/travelerController.js"></script>
@@ -29,6 +36,7 @@
             <strong> Password:</strong><input type="text" ng-model="newTraveler.password" placeholder="password"><br>
             <input type="submit" value="Start Here" class="btn btn-default" ng-click="addTraveler()">
           </form>
+          <div ng-repeat="error in errors"> {{error.message}} </div>
       </div>
       <div ng-view>
       </div>

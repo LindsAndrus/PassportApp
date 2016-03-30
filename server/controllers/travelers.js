@@ -8,7 +8,7 @@ module.exports = (function() {
     index: function(req, res) {
       Travelers.find({}, function(err, results){
         if(err) {
-          console.log(err);
+          console.log(err.message);
         } else {
           res.json(results);
         }
@@ -19,10 +19,9 @@ module.exports = (function() {
       console.log(req.body);
       var traveler = new Travelers({username: req.body.username, password: req.body.password});
       traveler.save(function(err, results){
-
         if(err){
-          console.log(err);
-          return;
+          console.log(err.errors);
+          res.status(500).json(err.errors);
         }else{
           res.json(results);
         }
