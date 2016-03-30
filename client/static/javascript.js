@@ -4,7 +4,7 @@ function success(position) {
   mapcanvas.style.height = '300px';
   mapcanvas.style.width = '560px';
 
-document.querySelector('article').appendChild(mapcanvas);
+  document.querySelector('article').appendChild(mapcanvas);
 
   var coords = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
   var currentLat = position.coords.latitude;
@@ -34,3 +34,16 @@ if (navigator.geolocation) {
 } else {
   error('Geo Location is not supported');
 }
+
+
+
+var map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -34.397, lng: 150.644},
+    zoom: 8
+  });
+}
+// $(document).ready(function(){
+//   initMap();
+// })
