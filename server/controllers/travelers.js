@@ -18,8 +18,8 @@ module.exports = (function() {
     create:function(req, res){
       console.log(req.body);
       var traveler = new Travelers({username: req.body.username, password: req.body.password});
+      //Travelers.findOne({username: traveler.})
       traveler.save(function(err, results){
-
         if(err){
           console.log(err);
           return;
