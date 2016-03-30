@@ -1,7 +1,7 @@
 console.log('made it to factory');
 
-myApp.factory('travelersFactory', function(){
-  var travelersFactory = {};
+myApp.factory('travelersFactory', function($http){
+  var factory = {};
   var travelers = [];
   factory.getTraveler = function(callback){
     $http.get('/travelers').then(function(output) {
