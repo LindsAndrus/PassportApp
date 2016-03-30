@@ -21,6 +21,10 @@ myApp.controller('travelers', ['$scope', '$location','travelersFactory', functio
       $scope.newTraveler = {};
   };
 
+  $scope.addCurrLocation = function(){
+    console.log('made it')
+  }
+
   $scope.deleteTraveler = function(travelers){
     travelersFactory.delete($scope);
   };
