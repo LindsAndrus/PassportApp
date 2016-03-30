@@ -24,6 +24,17 @@ module.exports = (function() {
           res.redirect('/places');
         }
       })
-    } //END CREATE
+    }, //END CREATE
+    current:function(req, res){
+      var place = new Places({lat: req.body.myLat, long: req.body.myLng});
+      place.save(function(err, results){
+        if(err){
+          console.log("errors")
+          res.json(err)
+        }else{
+          res.json(results);
+        }
+      })
+    } //END CURRENT
   } //END RETURN
 })();
