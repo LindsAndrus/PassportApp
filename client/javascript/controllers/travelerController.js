@@ -7,13 +7,13 @@ myApp.controller('travelers', ['$scope', '$location','travelersFactory', functio
   // });
 
   function indexCallback(data){
-      $scope.travelers = data;
+    $scope.travelers = data;
   }
 
-    function errorCallback(errors){
-      console.log(errors)
-      $scope.errors = errors;
-    }
+  function errorCallback(errors){
+    console.log(errors)
+    $scope.errors = errors;
+  }
 
   $scope.addTraveler = function(){
     travelersFactory.create($scope.newTraveler, indexCallback, errorCallback);
