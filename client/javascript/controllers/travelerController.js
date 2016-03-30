@@ -6,18 +6,18 @@ myApp.controller('travelers', ['$scope', '$location','travelersFactory', functio
     $scope.travelers = data;
   });
 
-   function indexCallback(data){
-        $scope.travelers = data;
-      }
+  function indexCallback(data){
+      $scope.travelers = data;
+  }
 
   $scope.addTraveler = function(){
       travelersFactory.create($scope.newTraveler, indexCallback);
        // $scope.travelers = data;
        $scope.newTraveler = {};
-     });
   };
 
   $scope.deleteTraveler = function(travelers){
     travelersFactory.delete($scope);
-  }
+  };
+
 }]);
