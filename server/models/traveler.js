@@ -4,10 +4,6 @@ var mongoose = require('mongoose');
 
 var TravelersSchema = new mongoose.Schema(
   {
-    name: {
-      type: String,
-      required: true,
-    },
     username: {
       type: String,
       required: true
