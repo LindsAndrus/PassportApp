@@ -1,6 +1,6 @@
 console.log('made it to front-end controller');
 
-myApp.controller('travelers', ['$scope', '$location','travelersFactory', function ($scope, $location, travelersFactory){
+myApp.controller('travelers', ['$scope', '$location','travelersFactory', 'placesFactory', function ($scope, $location, travelersFactory, placesFactory){
   $scope.travelers = [];
   // travelersFactory.getTraveler(function(data){
   //   $scope.travelers = data;
@@ -22,8 +22,10 @@ myApp.controller('travelers', ['$scope', '$location','travelersFactory', functio
   };
 
   $scope.addCurrLocation = function(){
-    console.log('made it')
-  }
+    console.log('made it');
+    placesFactory.current($scope.newPlace, indexCallback, errorCallback);
+      $scope.newPlace = {};
+  };
 
   $scope.deleteTraveler = function(travelers){
     travelersFactory.delete($scope);
