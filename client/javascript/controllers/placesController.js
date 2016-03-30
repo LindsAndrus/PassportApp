@@ -1,4 +1,4 @@
-console.log('made it to front-end controller');
+console.log('made it to front-end places controller');
 
 myApp.controller('places', ['$scope', '$location', 'placesFactory', function ($scope, $location, placesFactory){
   $scope.places = [];
