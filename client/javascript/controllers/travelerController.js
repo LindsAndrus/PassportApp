@@ -6,9 +6,9 @@ myApp.controller('travelers', ['$scope', '$location','travelersFactory', functio
   //   $scope.travelers = data;
   // });
 
-   function indexCallback(data){
-        $scope.travelers = data;
-      }
+  function indexCallback(data){
+      $scope.travelers = data;
+  }
 
     function errorCallback(errors){
       console.log(errors)
@@ -22,5 +22,6 @@ myApp.controller('travelers', ['$scope', '$location','travelersFactory', functio
 
   $scope.deleteTraveler = function(travelers){
     travelersFactory.delete($scope);
-  }
+  };
+
 }]);
