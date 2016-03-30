@@ -1,5 +1,4 @@
-<p>Hello, World</p>
-<!-- <h2>'Sup {{traveler.name}}</h2>
+<h2>'Sup {{traveler.name}}</h2>
 
 <h4>Places I have been:</h4>
 <div ng-repeat="city in placesbeen">
@@ -27,18 +26,23 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Check Into (...)</h4>
+          <h4 class="modal-title">You are here:</h4>
         </div>
         <div class="modal-body">
           <section id="wrapper">
-            Click the allow button to let the browser find your location.
               <article>
 
               </article>
           </section>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Check In!</button>
+          <form>
+            <input type="text" ng-model="currLat" id="myLat">
+            <input type="text" ng-model="currLng" id="myLng">
+            <input type="submit" value="Check In!" data-dismiss="modal" ng-click="addCurrLocation">
+          </form>
+          <!-- <button type="button" class="btn btn-default" ng-model="addLocation">Check In!</button> -->
+          Click the allow button to let the browser find your location.
         </div>
       </div>
     </div>
@@ -51,6 +55,7 @@
   <input type="submit" value="Search">
 </form>
 <div id="map"></div>
+
 
 <script>
   initMap();

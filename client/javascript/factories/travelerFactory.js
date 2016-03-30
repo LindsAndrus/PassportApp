@@ -14,17 +14,18 @@ myApp.factory('travelersFactory', function($http){
   factory.create = function(info, successCallback, errorCallback){
     // console.log(info);
     $http.post('/travelers', info)
-      .then(function(output){
-        console.log(output.data);
-        travelers.push(output.data);
+      .success(function(output){
+        if(output.error_message){
+          return errorCallback([output.error_message]);
+        }
+        travelers.push(output);
         successCallback(travelers);
       })
       .catch(function(error){
-        console.log('in error factory')
-        errorCallback(error.data);
+        errorCallback(["Please choose another username!"]);
       })
   };
-  
+
   factory.delete = function(callback){
     $http.post('/traveler/remove', traveler).then(function(output){
       travelers.splice(travelers.indexOf(traveler),1);

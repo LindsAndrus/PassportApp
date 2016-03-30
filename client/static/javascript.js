@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // function success(position) {
 //   var mapcanvas = document.createElement('div');
 //   mapcanvas.id = 'mapcontainer';

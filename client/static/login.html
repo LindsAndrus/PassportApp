@@ -9,6 +9,6 @@
             <strong> Password:</strong><input type="password" ng-model="newTraveler.password" placeholder="password"><br>
             <input type="submit" value="Start Here" class="btn btn-default" ng-click="addTraveler()">
           </form>
-          <div ng-repeat="error in errors"> {{error.message}} </div>
+          <p ng-repeat="error in errors track by $index"> {{error}} </p>
       </div>
       </div>

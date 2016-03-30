@@ -8,6 +8,7 @@ myApp.controller('travelers', ['$scope', '$location','travelersFactory', functio
 
   function indexCallback(data){
     $scope.travelers = data;
+    $location.path("/dashboard");
   }
 
   function errorCallback(errors){
@@ -19,6 +20,10 @@ myApp.controller('travelers', ['$scope', '$location','travelersFactory', functio
     travelersFactory.create($scope.newTraveler, indexCallback, errorCallback);
       $scope.newTraveler = {};
   };
+
+  $scope.addCurrLocation = function(){
+    console.log('made it')
+  }
 
   $scope.deleteTraveler = function(travelers){
     travelersFactory.delete($scope);
