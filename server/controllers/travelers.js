@@ -6,7 +6,7 @@ module.exports = (function() {
   return {
     // EXAMPLE OF GET (INDEX) METHOD //
     index: function(req, res) {
-      Travelers.find({}, function(err, results) {
+      Travelers.find({}, function(err, results){
         if(err) {
           console.log(err);
         } else {
