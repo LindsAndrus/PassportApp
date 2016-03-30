@@ -1,5 +1,7 @@
 console.log('made it to factory');
 
+var myApp = angular.module('myApp');
+
 myApp.factory('travelersFactory', function($http){
   var factory = {};
   var travelers = [];
@@ -22,6 +24,7 @@ myApp.factory('travelersFactory', function($http){
         errorCallback(error.data);
       })
   };
+  
   factory.delete = function(callback){
     $http.post('/traveler/remove', traveler).then(function(output){
       travelers.splice(travelers.indexOf(traveler),1);

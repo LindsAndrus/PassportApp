@@ -4,7 +4,7 @@
 	font-weight: bold;
 }
 
-body{
+.container{
 	position: relative;
 	background: #000 url("./images/kayak.jpg") center fixed;
 	background-size: cover;
