@@ -8,6 +8,7 @@ myApp.controller('travelers', ['$scope', '$location','travelersFactory', functio
 
   function indexCallback(data){
     $scope.travelers = data;
+    $location.path("/dashboard");
   }
 
   function errorCallback(errors){

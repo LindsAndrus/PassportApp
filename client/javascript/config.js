@@ -5,11 +5,11 @@ myApp.config(function ($routeProvider){
   $routeProvider
   .when('/dashboard',{
     templateUrl: 'static/dashboard.html',
-    // controller: '***UPDATED WITH FRONT-END CONTROLLER NAME***'
+    controller: 'travelers'
   })
   .when('/',{
     templateUrl: 'static/login.html',
-    controller: 'travelers',
+    controller: 'travelers'
   })
   // .when('/***UPDATE ROUTES***',{
   //   templateUrl: 'static/***UPDATE WITH PARTIAL VIEW NAME***.html',
