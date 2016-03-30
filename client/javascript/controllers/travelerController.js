@@ -4,7 +4,6 @@ myApp.controller('travelers', ['$scope', '$location','travelersFactory', functio
   $scope.travelers = [];
   travelersFactory.getTraveler(function(data){
     $scope.travelers = data;
-    console.log($scope.travelers);
   });
 
    function indexCallback(data){

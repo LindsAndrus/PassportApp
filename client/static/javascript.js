@@ -1,20 +1,10 @@
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
-
-
-<section id="wrapper">
-Click the allow button to let the browser find your location.
-
-    <article>
-
-    </article>
-<script>
 function success(position) {
   var mapcanvas = document.createElement('div');
   mapcanvas.id = 'mapcontainer';
-  mapcanvas.style.height = '400px';
-  mapcanvas.style.width = '600px';
+  mapcanvas.style.height = '300px';
+  mapcanvas.style.width = '560px';
 
-  document.querySelector('article').appendChild(mapcanvas);
+document.querySelector('article').appendChild(mapcanvas);
 
   var coords = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
   var currentLat = position.coords.latitude;
@@ -44,6 +34,3 @@ if (navigator.geolocation) {
 } else {
   error('Geo Location is not supported');
 }
-
-</script>
-</section>

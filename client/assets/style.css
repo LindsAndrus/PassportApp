@@ -1,9 +1,10 @@
 *{
 	margin:0px;
 	padding: 0px;
+	font-weight: bold;
 }
+
 body{
-  
 	position: relative;
 	background: #000 url("./images/kayak.jpg") center fixed;
 	background-size: cover;
@@ -11,7 +12,7 @@ body{
 	margin:0;
 }
 
-h5, h2, p, form{
+h5, h2, h4, p, form{
 	text-align: center;
 	font-family: 'Poiret One', cursive;
 	margin-top: 3%;
@@ -31,7 +32,4 @@ form{
 	width: 40%;
 	background-color: transparent;
 	margin-left: 30%;
-
 }
-
-
