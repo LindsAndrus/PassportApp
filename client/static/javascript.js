@@ -34,7 +34,7 @@ if (navigator.geolocation) {
 } else {
   error('Geo Location is not supported');
 }
-// 
+
 // var mapper;
 // function initMap() {
 //   mapper = new google.maps.Map(document.getElementById('map'), {
