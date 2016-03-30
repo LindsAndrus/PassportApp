@@ -6,14 +6,14 @@ myApp.config(function ($routeProvider) {
     templateUrl: 'static/dashboard.html',
     // controller: '***UPDATED WITH FRONT-END CONTROLLER NAME***'
   })
-  .when('/***UPDATE ROUTES***',{
-    templateUrl: 'static/***UPDATE WITH PARTIAL VIEW NAME***.html',
-    controller: '***UPDATED WITH FRONT-END CONTROLLER NAME***'
-  })
-  .when('/***UPDATE ROUTES***',{
-    templateUrl: 'static/***UPDATE WITH PARTIAL VIEW NAME***.html',
-    controller: '***UPDATED WITH FRONT-END CONTROLLER NAME***'
-  })
+  // .when('/***UPDATE ROUTES***',{
+  //   templateUrl: 'static/***UPDATE WITH PARTIAL VIEW NAME***.html',
+  //   controller: '***UPDATED WITH FRONT-END CONTROLLER NAME***'
+  // })
+  // .when('/***UPDATE ROUTES***',{
+  //   templateUrl: 'static/***UPDATE WITH PARTIAL VIEW NAME***.html',
+  //   controller: '***UPDATED WITH FRONT-END CONTROLLER NAME***'
+  // })
   .otherwise({
     redirectTo: '/'
   });

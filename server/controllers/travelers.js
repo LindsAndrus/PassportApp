@@ -16,12 +16,14 @@ module.exports = (function() {
     }, // END INDEX
     // EXAMPLE OF CREATE (POST) METHOD //
     create:function(req, res){
-      var traveler = new Travelers({name: req.body.name, username: req.body.username, password: req.body.password});
-      traveler.save(function(err){
+      console.log(req.body);
+      var traveler = new Travelers({username: req.body.username, password: req.body.password});
+      traveler.save(function(err, results){
         if(err){
-          console.log("errors")
+          console.log(err);
+          return;
         }else{
-          res.redirect('/travelers');
+          res.json(results);
         }
       })
     } //END CREATE

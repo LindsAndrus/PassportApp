@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/assets/style.css" charset="utf-8">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
     <script src= "angular/angular.js"></script>
@@ -18,19 +18,19 @@
   </head>
   <body ng-app="myApp">
     <div class="container">
+      <a href="#/dashboard">Go directly to Dashboard</a>
       <div id="UserForm" ng-controller="travelers">
-      <h2><u>Passport App</u></h2>
-      <h5>Make your dreams become a reality.</h5>
-      <h5>Track your Travel Goals using the Passport App.</h5>
-        <form>
-          <strong>User Name:</strong><input type="text" ng-model="newTraveler.username" placeholder="name"><br>
-         <strong> Password:</strong><input type="text" ng-model="newTraveler.password" placeholder="password"><br>
-         <input type="submit" value="Start Here" class="btn btn-default" ng-click="addtraveler()">
-        </form>
-        <a href="#/dashboard">Dashboard</a>
+        <h2><u>Passport App</u></h2>
+        <h5>Make your dreams become a reality.</h5>
+        <h5>Track your Travel Goals using the Passport App.</h5>
+          <form>
+            <strong>User Name:</strong><input type="text" ng-model="newTraveler.username" placeholder="name"><br>
+            <strong> Password:</strong><input type="text" ng-model="newTraveler.password" placeholder="password"><br>
+            <input type="submit" value="Start Here" class="btn btn-default" ng-click="addTraveler()">
+          </form>
       </div>
-      <div ng-view>
-      </div>
+      <!-- <div ng-view>
+      </div> -->
   </div>
   </body>
 </html>

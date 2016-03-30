@@ -7,11 +7,11 @@ var TravelersSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: true,
     },
     username: {
       type: String,
-      min_length: 4
+      min_length: 4,
+      unique: true
     },
     password: {
       type: String,
@@ -21,7 +21,8 @@ var TravelersSchema = new mongoose.Schema(
       type: [{
         type: Schema.Types.ObjectId,
         ref: 'Places',
-        checkedIn: Boolean
+        checkedIn: Boolean,
+        dateVisited: Date
       }],
       default: []
     },
@@ -33,8 +34,8 @@ var TravelersSchema = new mongoose.Schema(
     }
   }
 );
-TravelersSchema.path('name').required(true, 'Name cannot be blank');
 TravelersSchema.path('username').required(true, 'Username cannot be blank');
+TravelersSchema.path('username').unique(true, 'That username is not available, please select another');
 TravelersSchema.path('password').required(true, 'Password cannot be blank');
 
 var Travelers = mongoose.model('travelers', TravelersSchema);

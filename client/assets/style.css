@@ -1,9 +1,10 @@
 *{
 	margin:0px;
 	padding: 0px;
+	font-weight: bold;
 }
-body{
 
+body{
 	position: relative;
 	background: #000 url("./images/kayak.jpg") center fixed;
 	background-size: cover;
@@ -31,5 +32,4 @@ form{
 	width: 40%;
 	background-color: transparent;
 	margin-left: 30%;
-
 }

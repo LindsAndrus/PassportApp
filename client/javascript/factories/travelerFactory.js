@@ -8,9 +8,10 @@ myApp.factory('travelersFactory', function($http){
       travelers = output;
       callback(travelers);
     });
-  };
+  }
   factory.create = function(info, callback){
-    $http.post('/travelers', info).success(function(output){
+    // console.log(info);
+    $http.post('/travelers', info).then(function(output){
       travelers.push(output);
       callback(travelers);
     });
