@@ -6,10 +6,26 @@ function success(position) {
 
   document.querySelector('article').appendChild(mapcanvas);
 
+  var geocoder = new google.maps.Geocoder;
   var coords = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
   var currentLat = position.coords.latitude;
   var currentLng =  position.coords.longitude;
   console.log(currentLat, currentLng);
+
+  var city;
+  var country;
+
+  geocoder.geocode({'location': coords}, function(results, status) {
+    var alldata = results[1].address_components;
+    city = alldata[1].long_name
+    country = alldata[4].long_name;
+    console.log(city, country);
+    document.getElementById("myCity").value = city;
+    document.getElementById("myCountry").value = country;
+  });
+
+  document.getElementById("myLat").value = currentLat;
+  document.getElementById("myLng").value = currentLng;
 
   var options = {
     zoom: 15,
