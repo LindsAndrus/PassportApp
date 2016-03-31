@@ -18,7 +18,7 @@ myApp.factory('travelersFactory', function($http, $cookies ){
           return errorCallback([output.error_message]);
         }
         travelers.push(output);
-        console.log(travelers);
+        // console.log(travelers);
         successCallback(travelers[0]);
       })
       .catch(function(error){

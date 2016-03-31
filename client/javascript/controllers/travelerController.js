@@ -24,9 +24,20 @@ myApp.controller('travelers', ['$scope', '$location', '$cookies', 'travelersFact
   };
 
   $scope.addCurrLocation = function(){
-    console.log($scope.newPlace);
-    // placesFactory.current($scope.newPlace, indexCallback, errorCallback);
-    // $scope.newPlace = {};
+    var b = document.getElementById("myCity").value;
+    var a = document.getElementById("myCountry").value;
+    var c = document.getElementById("myLat").value;
+    var d = document.getElementById("myLng").value;
+    var e = document.getElementById("myPlaceID").value;
+      $scope.newPlace = {};
+      $scope.newPlace.city = b
+      $scope.newPlace.country = a
+      $scope.newPlace.latitude = c
+      $scope.newPlace.longitude = d
+      $scope.newPlace.placeId = e
+      // console.log($scope.newPlace);
+    placesFactory.current($scope.newPlace, $scope.userStuff, indexCallback, errorCallback);
+    $scope.newPlace = {};
   };
 
   $scope.deleteTraveler = function(travelers){

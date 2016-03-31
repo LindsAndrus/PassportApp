@@ -36,19 +36,23 @@
         </div>
         <div class="modal-footer">
           <form>
-            <input type="hidden" ng-model="newPlace.currLat" id="myLat">
-            <input type="hidden" ng-model="newPlace.currLng" id="myLng">
-            <input type="text" ng-model="newPlace.currCity" id="myCity">
-            <input type="text" ng-model="newPlace.currCountry" id="myCountry">
+            <input type="hidden" id="myLat">
+            <input type="hidden" id="myLng">
+            <input type="hidden" id="myPlaceID">
+            City: <input type="text" id="myCity"><br>
+            Country: <input type="text" id="myCountry">
             <input type="submit" value="Check In!" ng-click="addCurrLocation()" data-dismiss="modal">
           </form>
           <!-- <button type="button" class="btn btn-default" ng-model="addLocation">Check In!</button> -->
-          Click the allow button to let the browser find your location.
+          <p>
+            Click the allow button to let the browser find your location.
+          </p>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 
 <div class="searchCity">
   <h4>Been to a city you'd like to add? Or want to research a city you've never been to?</h4>
