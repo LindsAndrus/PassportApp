@@ -17,6 +17,10 @@ var PlacesSchema = new mongoose.Schema(
     longitude: {
       type: Number
     },
+    placeId: {
+      type: Number,
+      unique: true
+    },
     _traveler: {
       type: [{
         type: Schema.Types.ObjectId,
