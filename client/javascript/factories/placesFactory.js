@@ -6,7 +6,7 @@ myApp.factory('placesFactory', function($http){
 
   factory.current = function(info, person, successCallback, errorCallback){
     // info.person = person;
-    console.log(info);
+    // console.log(info);
     $http.post('/currPlace', {info: info, traveler: person})
     .then(function(output){
       places = output;
