@@ -41,7 +41,9 @@ myApp.controller('travelers', ['$scope', '$location', '$cookies', 'travelersFact
 
   //Data from autocomplete input
   $scope.searchResult = function(){
-    console.log($scope.search.result);
+    // console.log($scope.search.result);
+    var input = document.getElementById('searchTextField');
+    console.log(input.value);
   };
 
 }]);
