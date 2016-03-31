@@ -4,13 +4,14 @@ myApp.factory('placesFactory', function($http){
   var factory = {};
   var places = [];
 
-  factory.current = function(info, successCallback, errorCallback){
-    console.log(info)
-    // $http.post('/currPlace', info)
-    // .then(function(output){
-    //   places = output;
-    //   successCallback(places);
-    // });
+  factory.current = function(info, person, successCallback, errorCallback){
+    // info.person = person;
+    console.log(info);
+    $http.post('/currPlace', {info: info, traveler: person})
+    .then(function(output){
+      places = output;
+      successCallback(places);
+    });
   };
   // factory.create = function(info, callback){
   //   $http.post('/places/new', info).success(function(output){

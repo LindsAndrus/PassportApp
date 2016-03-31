@@ -9,20 +9,25 @@ function success(position) {
 
   var geocoder = new google.maps.Geocoder;
   var coords = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-  var currentLat = position.coords.latitude;
-  var currentLng =  position.coords.longitude;
+  var currentLat = parseFloat(position.coords.latitude.toFixed(1));
+  var currentLng =  parseFloat(position.coords.longitude.toFixed(1));
   console.log(currentLat, currentLng);
+
+  // console.log(parseFloat(currentLng.toFixed(1)));
 
   var city;
   var country;
 
   geocoder.geocode({'location': coords}, function(results, status) {
-    var alldata = results[1].address_components;
-    city = alldata[1].long_name
-    country = alldata[4].long_name;
-    console.log(city, country);
+    console.log(results);
+    var alldata = results[2].address_components;
+    city = alldata[0].long_name
+    country = alldata[3].long_name;
+    placeId = results[2].place_id
+    console.log(city, country, placeId);
     document.getElementById("myCity").value = city;
     document.getElementById("myCountry").value = country;
+    document.getElementById("myPlaceID").value = placeId;
   });
 
   document.getElementById("myLat").value = currentLat;
