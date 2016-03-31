@@ -1,16 +1,15 @@
-console.log('made it to factory');
+console.log('made it to traveler factory');
 
 var myApp = angular.module('myApp');
 
-myApp.factory('travelersFactory', function($http){
+myApp.factory('travelersFactory', function($http, $cookies ){
   var factory = {};
   var travelers = [];
+
   // factory.getTraveler = function(callback){
-  //   $http.get('/travelers').then(function(output) {
-  //     travelers.push(output);
   //     callback(travelers);
-  //   });
-  // }
+  // };
+  
   factory.create = function(info, successCallback, errorCallback){
     // console.log(info);
     $http.post('/travelers', info)
@@ -19,7 +18,8 @@ myApp.factory('travelersFactory', function($http){
           return errorCallback([output.error_message]);
         }
         travelers.push(output);
-        successCallback(travelers);
+        console.log(travelers);
+        successCallback(travelers[0]);
       })
       .catch(function(error){
         errorCallback(["Please choose another username!"]);

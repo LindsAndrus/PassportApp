@@ -1,12 +1,14 @@
-console.log('made it to factory');
+console.log('made it to places factory');
 
-myApp.factory('placesFactory', function(){
+myApp.factory('placesFactory', function($http){
   var factory = {};
   var places = [];
-  factory.current = function(callback){
-    $http.post('/currPlace').then(function(output) {
+  factory.current = function(info, successCallback, errorCallback){
+    console.log('made it to factory')
+    $http.post('/currPlace', info)
+    .then(function(output){
       places = output;
-      callback(places);
+      successCallback(places);
     });
   };
   // factory.create = function(info, callback){

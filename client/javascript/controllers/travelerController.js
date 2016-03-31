@@ -1,13 +1,15 @@
-console.log('made it to front-end controller');
+console.log('made it to front-end traveler controller');
 
-myApp.controller('travelers', ['$scope', '$location','travelersFactory', 'placesFactory', function ($scope, $location, travelersFactory, placesFactory){
+myApp.controller('travelers', ['$scope', '$location', '$cookies', 'travelersFactory', 'placesFactory', function ($scope, $location, $cookies, travelersFactory, placesFactory){
   $scope.travelers = [];
   // travelersFactory.getTraveler(function(data){
   //   $scope.travelers = data;
   // });
+    $scope.userStuff = $cookies.get('user');
+    console.log($scope.userStuff);
 
   function indexCallback(data){
-    $scope.travelers = data;
+    $cookies.put('user', data.username);
     $location.path("/dashboard");
   }
 
@@ -29,6 +31,17 @@ myApp.controller('travelers', ['$scope', '$location','travelersFactory', 'places
 
   $scope.deleteTraveler = function(travelers){
     travelersFactory.delete($scope);
+  };
+
+  $scope.logout = function(){
+    $cookies.remove('user');
+    console.log($scope.userStuff);
+    $location.path("/");
+  };
+
+  //Data from autocomplete input
+  $scope.searchResult = function(){
+    console.log($scope.search.result);
   };
 
 }]);
