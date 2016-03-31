@@ -28,7 +28,20 @@ module.exports = (function() {
     }, //END CREATE
     current:function(req, res){
       console.log(req.body)
-      // Travelers.findOne({username: })
+      Travelers.findOne({username: req.body.traveler}, function(err, traveler){
+        var place = new Places(req.body.info);
+        place._traveler = traveler._id;
+        traveler.place.push(place);
+        place.save(function(err){
+          traveler.save(function(err){
+            if(err){
+              console.log(err);
+            }else{
+              console.log("success");
+            }
+          });
+        });
+      });
       // var place = new Places({lat: req.body.myLat, long: req.body.myLng});
       // place.save(function(err, results){
       //   if(err){

@@ -5,8 +5,9 @@ myApp.factory('placesFactory', function($http){
   var places = [];
 
   factory.current = function(info, person, successCallback, errorCallback){
-    console.log(person);
-    $http.post('/currPlace', info, person)
+    // info.person = person;
+    console.log(info);
+    $http.post('/currPlace', {info: info, traveler: person})
     .then(function(output){
       places = output;
       successCallback(places);
