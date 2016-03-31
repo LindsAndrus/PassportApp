@@ -54,7 +54,10 @@ myApp.controller('travelers', ['$scope', '$location', '$cookies', 'travelersFact
   $scope.searchResult = function(){
     var input = document.getElementById('searchTextField');
     // console.log(input.value);
-    travelersFactory.aboutLocation(input);
+    travelersFactory.aboutLocation(input,function(data,detailData){
+      console.log(detailData);
+      console.log(data);
+    });
   };
 
 }]);
