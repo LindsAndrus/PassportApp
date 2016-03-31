@@ -1,5 +1,5 @@
 console.log("made it to front-end config");
-var myApp = angular.module('myApp', ['ngRoute']);
+var myApp = angular.module('myApp', ['ngRoute', 'ngCookies']);
 
 myApp.config(function ($routeProvider){
   $routeProvider

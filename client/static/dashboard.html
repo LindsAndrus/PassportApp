@@ -1,4 +1,4 @@
-<h2>'Sup {{traveler.name}}</h2>
+<h2>'Sup {{userStuff}}</h2> 
 
 <h4>Places I have been:</h4>
 <div ng-repeat="city in placesbeen">
@@ -54,6 +54,7 @@
   City: <input type="text" name="city">
   <input type="submit" value="Search">
 </form>
+<button ng-click="logout()">Logout</button>
 
 <div id="map" style="overflow: visible"></div>
 
