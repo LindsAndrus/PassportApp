@@ -24,9 +24,9 @@ myApp.controller('travelers', ['$scope', '$location', '$cookies', 'travelersFact
   };
 
   $scope.addCurrLocation = function(){
-    console.log('made it');
-    placesFactory.current($scope.newPlace, indexCallback, errorCallback);
-      $scope.newPlace = {};
+    console.log($scope.newPlace);
+    // placesFactory.current($scope.newPlace, indexCallback, errorCallback);
+    // $scope.newPlace = {};
   };
 
   $scope.deleteTraveler = function(travelers){
@@ -37,6 +37,11 @@ myApp.controller('travelers', ['$scope', '$location', '$cookies', 'travelersFact
     $cookies.remove('user');
     console.log($scope.userStuff);
     $location.path("/");
+  };
+
+  //Data from autocomplete input
+  $scope.searchResult = function(){
+    console.log($scope.search.result);
   };
 
 }]);

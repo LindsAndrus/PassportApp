@@ -1,3 +1,4 @@
+// Logic for Geolocation for CheckIn function
 function success(position) {
   var mapcanvas = document.createElement('div');
   mapcanvas.id = 'mapcontainer';
@@ -50,4 +51,3 @@ if (navigator.geolocation) {
 } else {
   error('Geo Location is not supported');
 }
-
