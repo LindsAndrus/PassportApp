@@ -61,8 +61,8 @@
 
 <button class="btn btn-info btn-md" ng-click="logout()">Logout</button>
 
-<!-- Place autocomplete -->
 <script>
+function autoComplete(){
   // Logic for autocomplete
   var input = document.getElementById('searchTextField');
   // Limits autocomplete to cities
@@ -70,4 +70,6 @@
     types: ['(cities)'],
   };
   new google.maps.places.Autocomplete(input,options);
+}
+autoComplete();
 </script>
