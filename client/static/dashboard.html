@@ -16,7 +16,7 @@
 <h4>Somewhere new right now? Check in!</h4>
 <div class="modalContainer">
   <!-- Fire the modal -->
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Check In!</button>
 
   <!-- Create modal -->
   <div class="modal fade" id="myModal" role="dialog">
@@ -50,8 +50,13 @@
 </div>
 
 <h4>Been to a city you'd like to add? Or want to research a city you've never been to?</h4>
-<form>
-  City: <input type="text" name="city">
-  <input type="submit" value="Search">
-</form>
-<div id="map" style="overflow: visible"></div>
+<!-- Place autocomplete -->
+  <input id="searchTextField" type="text" size="50">
+  <script>
+    var input = document.getElementById('searchTextField');
+    // Limits autocomplete to cities
+    var options = {
+    types: ['(cities)'],
+    };
+    new google.maps.places.Autocomplete(input,options);
+  </script>
