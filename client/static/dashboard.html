@@ -14,13 +14,16 @@
   <h2>'Sup {{userStuff}}</h2>
 
   <h4>Places I have been:</h4>
+  <script>
+    // console.log(places);
+  </script>
 
-  <div ng-repeat="city in placesbeen">
+  <div ng-repeat="city in places">
   City: {{city.name}}, Country: {{city.country}}
   Latitude: {{city.latitude}} / Longitude: {{city.longitude}}
   Visited: {{city.dateVisited}}
   </div>
-
+  <br>
   <!-- Trigger the modal with a button -->
   <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Check In</button>
 

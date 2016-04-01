@@ -18,7 +18,9 @@ module.exports = (function() {
     create:function(req, res){
       console.log(req.body);
       var traveler = new Travelers({username: req.body.username, password: req.body.password});
-          Travelers.findOne({username: req.body.username}, function(err, travelerzz){
+          Travelers.findOne({username: req.body.username})
+            .populate('Places')
+            .exec(function(err, travelerzz){
             console.log('got to finding a traveler!');
             console.log(travelerzz);
             if(err){
@@ -37,11 +39,13 @@ module.exports = (function() {
               if(err){
                 res.status(500).json(err);
               } else {
+                console.log(results);
                 res.json(results);
               }
             });
           });
-    }//END CREATE
+        }//END CREATE
+
 // if(err){
 //               traveler.save(function(err, results){
 //                 if(err){

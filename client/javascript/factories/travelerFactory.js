@@ -7,14 +7,15 @@ myApp.factory('travelersFactory', function($http, $cookies){
   var travelers = [];
   var cityInfo = {};
 
-  factory.getTravelersPlaces = function(user){
-    $http.get('/places', user)
-      .success(function(data){
-        placesBeen = data;
-        console.log(placesBeen);
-        // callback(placesBeen);
-      });
-  };
+  // factory.getTravelersPlaces = function(user){
+  //   console.log(user);
+  //   $http.get('/places', user)
+  //     .success(function(data){
+  //       places = data;
+  //       console.log(places);
+  //       // callback(places);
+  //     });
+  // };
 
   factory.create = function(info, successCallback, errorCallback){
     // console.log(info);
@@ -24,7 +25,7 @@ myApp.factory('travelersFactory', function($http, $cookies){
           return errorCallback([output.error_message]);
         }
         travelers.push(output);
-        console.log(travelers);
+        console.log(travelers[0]);
         successCallback(travelers[0]);
       })
       .catch(function(error){
