@@ -18,8 +18,9 @@ var TravelersSchema = new mongoose.Schema(
       type: [{
         type: Schema.Types.ObjectId,
         ref: 'Places',
-        checkedIn: Boolean,
-        dateVisited: Date
+        unique: true
+        // checkedIn: Boolean,
+        // dateVisited: Date
       }],
       default: []
     },

@@ -3,16 +3,67 @@
 	padding: 0px;
 	font-weight: bold;
 }
+body{
+	height:960px;
+}
 
 .container{
 	position: relative;
+    width: 100%;
+    height:960px;
 	background: #000 url("./images/kayak.jpg") center fixed;
 	background-size: cover;
 	overflow: hidden;
 	margin:0;
+  }
+
+#header{
+	width:100%;
+	background-color: #282828;
+	height: 55px;
+	padding-top: 15px;
+	display: block;
+}
+		#header h3{
+		color:white;
+		display: inline;
+		margin-left: 10px;
+
+		}
+		#header p{
+		color:white;
+		display: inline;
+		margin-left: 550px;
+		}
+
+#dashboardContainer{
+	width: 90%;
+	height: 905px; 
+	padding-top: 5px;
+	padding-right: 0px;
+	float: right;
 }
 
-h5, h2, h4, p, form{
+#sidePanel{
+	height: 905px;
+	width: 10%;
+	background-color: #660099;
+	float:left;
+	padding-top: 10px;
+}
+
+		#sidePanel #logout{
+		display: inline-block;
+		margin: 10px;
+		}
+
+		#sidePanel #findUser{
+		display: inline-block;
+		margin: 10px;
+		}
+
+
+h5, h3, h2, h4, p, form{
 	text-align: center;
 	font-family: 'Poiret One', cursive;
 	margin-top: 3%;
@@ -27,12 +78,14 @@ h5{
 }
 
 form{
-	font-style: bold;
+	font-size: 15px;
 	border: 2px solid black;
 	width: 40%;
 	background-color: transparent;
 	margin-left: 30%;
 }
+
+
 button{
 	margin-left: 46%;
 }

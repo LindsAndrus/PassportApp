@@ -18,10 +18,10 @@ var PlacesSchema = new mongoose.Schema(
       type: Number
     },
     placeId: {
-      type: Number,
+      type: String,
       unique: true
     },
-    _traveler: {
+    traveler: {
       type: [{
         type: Schema.Types.ObjectId,
         ref: 'Travelers'

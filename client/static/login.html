@@ -1,12 +1,12 @@
  <div class="container">
       <a href="#/dashboard">Go directly to Dashboard</a>
       <div id="UserForm">
-        <h2><u>Passport App</u></h2>
+        <h2>Passport App</h2>
         <h5>Make your dreams become a reality.</h5>
         <h5>Track your Travel Goals using the Passport App.</h5>
           <form>
-            <strong>User Name:</strong><input type="text" ng-model="newTraveler.username" placeholder="name"><br>
-            <strong> Password:</strong><input type="password" ng-model="newTraveler.password" placeholder="password"><br>
+            <label>User Name:</label><input type="text" ng-model="newTraveler.username" placeholder="name"><br>
+            <label>Password:</label><input type="password" ng-model="newTraveler.password" placeholder="password"><br>
             <input type="submit" value="Start Here" class="btn btn-default" ng-click="addTraveler()">
           </form>
           <p ng-repeat="error in errors track by $index"> {{error}} </p>

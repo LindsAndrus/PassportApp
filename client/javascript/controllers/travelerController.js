@@ -8,6 +8,7 @@ myApp.controller('travelers', ['$scope', '$location', '$cookies', 'travelersFact
     $scope.userStuff = $cookies.get('user');
     console.log($scope.userStuff);
 
+
   function indexCallback(data){
     $cookies.put('user', data.username);
     $location.path("/dashboard");
@@ -17,6 +18,7 @@ myApp.controller('travelers', ['$scope', '$location', '$cookies', 'travelersFact
     console.log(errors)
     $scope.errors = errors;
   }
+
 
   $scope.addTraveler = function(){
     travelersFactory.create($scope.newTraveler, indexCallback, errorCallback);

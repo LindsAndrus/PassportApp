@@ -27,30 +27,29 @@ module.exports = (function() {
       })
     }, //END CREATE
     current:function(req, res){
-      console.log(req.body)
+      console.log(req.body.info.placeId)
       Travelers.findOne({username: req.body.traveler}, function(err, traveler){
-        var place = new Places(req.body.info);
-        place._traveler = traveler._id;
-        traveler.place.push(place);
-        place.save(function(err){
-          traveler.save(function(err){
-            if(err){
-              console.log(err);
-            }else{
-              console.log("success");
-            }
-          });
+        console.log('traveler: ', traveler);
+        Places.findOne({placeId: req.body.info.placeId}, function(err, place){
+          if(place === null){
+            place = new Places(req.body.info);
+            console.log('Place: ', place);
+          }
+          place.traveler = traveler._id;
+          place.save(function(err, savedPlace){
+            Travelers.update({_id: traveler._id}, {$addToSet: {place: place._id}}, function(err, thing){
+              console.log(thing);
+              if(err){
+                console.log(err);
+              }else{
+                console.log("success");
+              }
+            });
+            // traveler.save(function(err){
+          // });
         });
       });
-      // var place = new Places({lat: req.body.myLat, long: req.body.myLng});
-      // place.save(function(err, results){
-      //   if(err){
-      //     console.log("errors")
-      //     res.json(err)
-      //   }else{
-      //     res.json(results);
-      //   }
-      // })
+    });
     } //END CURRENT
   } //END RETURN
 })();
