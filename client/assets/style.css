@@ -3,6 +3,7 @@
 	padding: 0px;
 	font-weight: bold;
 }
+
 body{
 	height:960px;
 }
@@ -36,14 +37,6 @@ body{
 		margin-left: 550px;
 		}
 
-#dashboardContainer{
-	width: 90%;
-	height: 905px; 
-	padding-top: 5px;
-	padding-right: 0px;
-	float: right;
-}
-
 #sidePanel{
 	height: 905px;
 	width: 10%;
@@ -53,15 +46,22 @@ body{
 }
 
 		#sidePanel #logout{
-		display: inline-block;
-		margin: 10px;
+			display: inline-block;
+			margin: 10px;
 		}
 
 		#sidePanel #findUser{
-		display: inline-block;
-		margin: 10px;
+			display: inline-block;
+			margin: 10px;
 		}
 
+#dashboardContainer{
+	width: 90%;
+	height: 905px;
+	padding-top: 5px;
+	padding-right: 0px;
+	float: right;
+}
 
 h5, h3, h2, h4, p, form{
 	text-align: center;
@@ -84,7 +84,6 @@ form{
 	background-color: transparent;
 	margin-left: 30%;
 }
-
 
 button{
 	margin-left: 46%;
