@@ -11,14 +11,23 @@
 </div>
 
 <div id="dashboardContainer">
-    <h2>'Sup {{userStuff}}</h2>
+  <h2>'Sup {{userStuff}}</h2>
 
-    <h4>Places I have been:</h4>
-    <div ng-repeat="city in placesbeen">
-    City: {{city.name}}, Country: {{city.country}}
-    Latitude: {{city.latitude}} / Longitude: {{city.longitude}}
-    Visited: {{city.dateVisited}}
-    </div>
+  <h4>Places I have been:</h4>
+
+  <div ng-repeat="city in placesbeen">
+  City: {{city.name}}, Country: {{city.country}}
+  Latitude: {{city.latitude}} / Longitude: {{city.longitude}}
+  Visited: {{city.dateVisited}}
+  </div>
+
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Check In</button>
+
+  <!-- Modal -->
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
@@ -31,23 +40,59 @@
               </article>
           </section>
         </div>
-        <div class="modal-footer">
-          <form>
-            <input type="hidden" id="myLat">
-            <input type="hidden" id="myLng">
-            <input type="hidden" id="myPlaceID">
-            City: <input type="text" id="myCity"><br>
-            Country: <input type="text" id="myCountry">
-            <input type="submit" value="Check In!" ng-click="addCurrLocation()" data-dismiss="modal">
-          </form>
-          <!-- <button type="button" class="btn btn-default" ng-model="addLocation">Check In!</button> -->
-          <p>
-            Click the allow button to let the browser find your location.
-          </p>
+        <div class="modal-footer"><form>
+          <input type="hidden" id="myLat">
+          <input type="hidden" id="myLng">
+          <input type="hidden" id="myPlaceID">
+          City: <input type="text" id="myCity"><br>
+          Country: <input type="text" id="myCountry">
+          <input type="submit" value="Check In!" ng-click="addCurrLocation()" data-dismiss="modal">
+        </form>
+          <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
         </div>
       </div>
+
     </div>
   </div>
+  <!-- Trigger the modal with a button -->
+<!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
+
+<!-- Modal -->
+<!-- <div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog"> -->
+    <!-- Modal content-->
+
+  <!-- <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h4 class="modal-title">You are here:</h4>
+    </div>
+
+    <div class="modal-body">
+      <section id="wrapper">
+          <article>
+          </article>
+      </section>
+    </div> -->
+<!--
+    <div class="modal-footer">
+      <form>
+        <input type="hidden" id="myLat">
+        <input type="hidden" id="myLng">
+        <input type="hidden" id="myPlaceID">
+        City: <input type="text" id="myCity"><br>
+        Country: <input type="text" id="myCountry">
+        <input type="submit" value="Check In!" ng-click="addCurrLocation()" data-dismiss="modal">
+      </form> -->
+      <!-- <button type="button" class="btn btn-default" ng-model="addLocation">Check In!</button> -->
+      <!-- <p>
+        Click the allow button to let the browser find your location.
+      </p>
+    </div>
+
+  </div> -->
+<!-- </div> -->
+<!-- </div> -->
 </div>
 
 
