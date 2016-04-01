@@ -35,16 +35,25 @@ module.exports = (function() {
             place = new Places(req.body.info);
             console.log('Place: ', place);
           }
-          place.traveler = traveler._id;
+          place.traveler.push(traveler._id);
           place.save(function(err, savedPlace){
-            Travelers.update({_id: traveler._id}, {$addToSet: {place: place._id}}, function(err, thing){
-              console.log(thing);
-              if(err){
-                console.log(err);
-              }else{
-                console.log("success");
+            var thisLocation = {};
+            thisLocation.location = savedPlace._id;
+            thisLocation.checkedIn = true;
+            thisLocation.dateVisted = Date.now;
+
+            var visited = false;
+            for (var i = 0; i < traveler.place.length; i ++){
+              // console.log(traveler.place[i].location == String(savedPlace._id));
+              if (traveler.place[i].location && traveler.place[i].location == String(savedPlace._id)){
+                visited = true;
+                break;
               }
-            });
+            }
+            if (!visited){
+              traveler.place.push(thisLocation);
+              traveler.save();
+            }
             // traveler.save(function(err){
           // });
         });
