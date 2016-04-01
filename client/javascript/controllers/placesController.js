@@ -2,6 +2,7 @@ console.log('made it to front-end places controller');
 
 myApp.controller('places', ['$scope', '$location', 'placesFactory', function ($scope, $location, placesFactory){
   $scope.places = [];
+
   placesFactory.getPlaces(function(data){
     $scope.places = data;
     console.log($scope.places);

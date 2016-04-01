@@ -19,7 +19,7 @@ function success(position) {
   var country;
 
   geocoder.geocode({'location': coords}, function(results, status) {
-    console.log(results);
+    // console.log(results);
     var alldata = results[2].address_components;
     city = alldata[0].long_name
     country = alldata[3].long_name;

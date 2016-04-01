@@ -5,7 +5,6 @@ myApp.controller('travelers', ['$scope', '$location', '$cookies', 'travelersFact
   $scope.cityData = {};
 
   if($location.path() == '/dashboard'){
-    console.log($cookies.get('user'));
     getPlaces($cookies.get('user'));
   };
 
@@ -27,9 +26,7 @@ myApp.controller('travelers', ['$scope', '$location', '$cookies', 'travelersFact
   }
 
   function getPlaces(user){
-    console.log('this is getPlaces');
     travelersFactory.getTravelersPlaces(user, function(info){
-      console.log('this is info: ', info);
       $scope.info = info;
     })
   };
@@ -62,12 +59,14 @@ myApp.controller('travelers', ['$scope', '$location', '$cookies', 'travelersFact
 
   $scope.placeInfo = function(){
     $scope.cityData = travelersFactory.getInfo();
+    // console.log('placeInfo: ', $scope.cityData);
   };
 
   //Data from autocomplete input
   $scope.searchResult = function(){
     var input = document.getElementById('searchTextField');
     travelersFactory.aboutLocation(input,function(data){
+      console.log('searchResults: ', data);
       $location.path("/search");
     });
   };

@@ -6,7 +6,6 @@ var Travelers = mongoose.model('travelers');
 module.exports = (function(){
   return {
     index: function(req, res){
-      console.log('this is controller: ', req.params);
       Travelers.find({username: req.params.username})
       .populate({path: 'place.location'})
       .exec(function(err, data){

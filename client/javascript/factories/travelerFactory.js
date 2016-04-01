@@ -8,11 +8,9 @@ myApp.factory('travelersFactory', function($http, $cookies){
   var cityInfo = {};
 
   factory.getTravelersPlaces = function(user, callback){
-    console.log('this is factory data:', user);
     $http.get('/places/'+user)
       .success(function(data){
         places = data;
-        console.log(places);
         callback(places);
       });
   };
@@ -48,14 +46,16 @@ myApp.factory('travelersFactory', function($http, $cookies){
       var url ="https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exintro&titles="+locationCity+"&format=json";
 
       $http.get(url, true).success(function(data){
-        cityInfo = data;
+        // console.log(data);
+        cityInfo = data.query;
         callback(cityInfo);
       });
     }
   }
 
   factory.getInfo = function(){
-      return cityInfo;
+    console.log('getInfo: ', cityInfo.pages);
+      return cityInfo.pages;
   }
   //   function processRequest(e) {
   //     console.log('processRequest');
