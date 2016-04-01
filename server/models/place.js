@@ -23,9 +23,9 @@ var PlacesSchema = new mongoose.Schema(
     },
     traveler: [{
         type: Schema.Types.ObjectId,
-        ref: 'Travelers'
+        ref: 'travelers'
       }]
-    
+
   }
 );
 

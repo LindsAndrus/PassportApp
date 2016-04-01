@@ -7,15 +7,15 @@ myApp.factory('travelersFactory', function($http, $cookies){
   var travelers = [];
   var cityInfo = {};
 
-  // factory.getTravelersPlaces = function(user){
-  //   console.log(user);
-  //   $http.get('/places', user)
-  //     .success(function(data){
-  //       places = data;
-  //       console.log(places);
-  //       // callback(places);
-  //     });
-  // };
+  factory.getTravelersPlaces = function(user, callback){
+    console.log('this is factory data:', user);
+    $http.get('/places/'+user)
+      .success(function(data){
+        places = data;
+        console.log(places);
+        callback(places);
+      });
+  };
 
   factory.create = function(info, successCallback, errorCallback){
     // console.log(info);

@@ -5,20 +5,20 @@ var Travelers = mongoose.model('travelers');
 
 module.exports = (function(){
   return {
-    // index: function(req, res){
-    //   console.log('this is controller: ', req.body);
-    //   // Travelers.find({username: req.body.traveler})
-    //   // .populate('Places')
-    //   // .exec(function(err, data){
-    //   //   if(data.checkedIn == 'true'){
-    //   //     placesBeen = place;
-    //   //   }
-    //   //   if(data.checkIn == 'false') {
-    //   //     placesWishing = place;
-    //   //   }
-    //   //     res.json(results);
-    //   // })
-    // }, // END INDEX
+    index: function(req, res){
+      console.log('this is controller: ', req.params);
+      Travelers.find({username: req.params.username})
+      .populate({path: 'place.location'})
+      .exec(function(err, data){
+        // if(data.place.checkedIn == 'true'){
+        //   var placesBeen = data.place;
+        // }
+        // if(data.place.checkedIn == 'false') {
+        //   var placesWishing = data.place;
+        // }
+          res.json({places: data});
+      })
+    }, // END INDEX
     // EXAMPLE OF CREATE (POST) METHOD //
     create:function(req, res){
       var place = new Places({city: req.body.city, country: req.body.country});
