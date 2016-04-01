@@ -3,18 +3,22 @@ var mongoose = require('mongoose');
 var Places = mongoose.model('places');
 var Travelers = mongoose.model('travelers');
 
-module.exports = (function() {
+module.exports = (function(){
   return {
-    // EXAMPLE OF GET (INDEX) METHOD //
-    index: function(req, res) {
-      Places.find({}, function(err, results) {
-        if(err) {
-          console.log(err);
-        } else {
-          res.json(results);
-        }
-      })
-    }, // END INDEX
+    // index: function(req, res){
+    //   console.log('this is controller: ', req.body);
+    //   // Travelers.find({username: req.body.traveler})
+    //   // .populate('Places')
+    //   // .exec(function(err, data){
+    //   //   if(data.checkedIn == 'true'){
+    //   //     placesBeen = place;
+    //   //   }
+    //   //   if(data.checkIn == 'false') {
+    //   //     placesWishing = place;
+    //   //   }
+    //   //     res.json(results);
+    //   // })
+    // }, // END INDEX
     // EXAMPLE OF CREATE (POST) METHOD //
     create:function(req, res){
       var place = new Places({city: req.body.city, country: req.body.country});

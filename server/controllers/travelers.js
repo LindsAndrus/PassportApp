@@ -6,7 +6,7 @@ module.exports = (function() {
   return {
     // EXAMPLE OF GET (INDEX) METHOD //
     index: function(req, res) {
-      Travelers.find({}, function(err, results){
+      Travelers.find({username: req.body.username}, function(err, results){
         if(err) {
           console.log(err.message);
         } else {
@@ -15,13 +15,12 @@ module.exports = (function() {
       })
     }, // END INDEX
     // EXAMPLE OF CREATE (POST) METHOD //
-
-
-
     create:function(req, res){
       console.log(req.body);
       var traveler = new Travelers({username: req.body.username, password: req.body.password});
-          Travelers.findOne({username: req.body.username}, function(err, travelerzz){
+          Travelers.findOne({username: req.body.username})
+            .populate('Places')
+            .exec(function(err, travelerzz){
             console.log('got to finding a traveler!');
             console.log(travelerzz);
             if(err){
@@ -29,24 +28,24 @@ module.exports = (function() {
             }
             if(travelerzz){
               console.log('got to comparing passwords for a traveler!');
-                if(req.body.password === travelerzz.password) {
-                  console.log('got to else of matching passwords!');
-                  return res.json(travelerzz);
-                }else{
-                 return res.json({error_message:'Password does not match!'});
-                }
+              if(req.body.password === travelerzz.password) {
+                console.log('got to else of matching passwords!');
+                return res.json(travelerzz);
+              } else {
+               return res.json({error_message:'Password does not match!'});
+              }
             }
-              traveler.save(function(err, results){
-                if(err){
-                  res.status(500).json(err);
-                }else{
-                  res.json(results);
-                   }
-                }); 
-          
-      });
-    } 
-    //END CREATE
+            traveler.save(function(err, results){
+              if(err){
+                res.status(500).json(err);
+              } else {
+                console.log(results);
+                res.json(results);
+              }
+            });
+          });
+        }//END CREATE
+
 // if(err){
 //               traveler.save(function(err, results){
 //                 if(err){
@@ -63,8 +62,6 @@ module.exports = (function() {
 //                 }else{
 //                   res.send('Password does not match!');
 //                 }
-//             } 
-
-
+//             }
   } //END RETURN
 })();

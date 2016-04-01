@@ -14,7 +14,7 @@ myApp.controller('places', ['$scope', '$location', 'placesFactory', function ($s
      });
   };
 
-  $scope.deletePlace = function(places){
-    placesFactory.delete($scope);
-  }
+  // $scope.deletePlace = function(places){
+  //   placesFactory.delete($scope);
+  // }
 }]);
