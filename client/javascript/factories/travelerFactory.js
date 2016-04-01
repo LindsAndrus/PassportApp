@@ -5,6 +5,7 @@ var myApp = angular.module('myApp');
 myApp.factory('travelersFactory', function($http, $cookies ){
   var factory = {};
   var travelers = [];
+  var cityInfo = {};
 
   // factory.getTraveler = function(callback){
   //     callback(travelers);
@@ -32,30 +33,33 @@ myApp.factory('travelersFactory', function($http, $cookies ){
     })
   };
 
-  factory.aboutLocation = function(input,callback){
+  factory.aboutLocation = function(input, callback){
     if(input.value){
-
       var location = input.value;
       var locationSplit = location.split(",");
       locationCity = locationSplit[0];
 
       var url ="https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exintro&titles="+locationCity+"&format=json";
 
-      $http.get(url, true).then(function(data){
-        // var backGround =
-        callback(data);
+      $http.get(url, true).success(function(data){
+        cityInfo = data;
+        callback(cityInfo);
       });
     }
+  }
 
-    function processRequest(e) {
-      console.log('processRequest');
-      if ($http.readyState == 4 && $http.status == 200){
-      // var response = JSON.parse(xhr.responseText);
-      console.log('$http.responseText');
-      }
-    }
-    $http.onreadystatechange = processRequest;
-  };
+  factory.getInfo = function(){
+      return cityInfo;
+  }
+  //   function processRequest(e) {
+  //     console.log('processRequest');
+  //     if ($http.readyState == 4 && $http.status == 200){
+  //     // var response = JSON.parse(xhr.responseText);
+  //     console.log('$http.responseText');
+  //     }
+  //   }
+  //   $http.onreadystatechange = processRequest;
+  // };
 
   return factory;
 });

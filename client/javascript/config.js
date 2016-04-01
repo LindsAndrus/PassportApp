@@ -8,7 +8,7 @@ myApp.config(function ($routeProvider){
     controller: 'travelers'
   })
   .when('/search',{
-    templateUrl: 'static/place.html'
+    templateUrl: 'static/place.html',
     controller: 'travelers'
   })
   .when('/',{
