@@ -21,13 +21,11 @@ var PlacesSchema = new mongoose.Schema(
       type: String,
       unique: true
     },
-    traveler: {
-      type: [{
+    traveler: [{
         type: Schema.Types.ObjectId,
         ref: 'Travelers'
-      }],
-      default: []
-    }
+      }]
+    
   }
 );
 
