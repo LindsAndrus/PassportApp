@@ -25,6 +25,16 @@
   Visited: {{place.place[0].dateVisited | date: ('MMMM d, yyyy')}}
   </div>
   <br>
+
+  <!-- City Search -->
+  <div class="searchCity">
+    <h4>Been to a city you'd like to add? Or want to research a city you've never been to?</h4>
+    <form>
+      <input id="searchTextField" ng-model="search.result" type="text" size="50">
+      <button ng-click="searchResult()">Search</button>
+    </form>
+  </div>
+
   <!-- Trigger the modal with a button -->
   <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="checkInModal">Check In</button>
 
@@ -100,13 +110,7 @@
 </div>
 
 
-<div class="searchCity">
-  <h4>Been to a city you'd like to add? Or want to research a city you've never been to?</h4>
-  <form>
-    <input id="searchTextField" ng-model="search.result" type="text" size="50">
-    <button ng-click="searchResult()">Search</button>
-  </form>
-</div>
+
 
 <script>
 function autoComplete(){
