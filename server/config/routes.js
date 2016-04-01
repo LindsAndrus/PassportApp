@@ -4,7 +4,7 @@ var Travelers = require('./../controllers/travelers.js');
 
 module.exports = function(app){
   app.get('/travelers', Travelers.index);
-  // app.get('/places', Places.index);
+  app.get('/places/:username', Places.index);
   app.post('/place', Places.create);
   app.post('/travelers', Travelers.create);
   app.post('/currPlace', Places.current);

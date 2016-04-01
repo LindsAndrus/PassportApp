@@ -17,11 +17,12 @@
   <script>
     // console.log(places);
   </script>
-
-  <div ng-repeat="city in places">
-  City: {{city.name}}, Country: {{city.country}}
-  Latitude: {{city.latitude}} / Longitude: {{city.longitude}}
-  Visited: {{city.dateVisited}}
+  <!-- {{info}} -->
+  <div ng-repeat="place in info.places">
+  City: {{place.place[0].location.city}}<br>
+  Country: {{place.place[0].location.country}} <br>
+  Latitude: {{place.place[0].location.latitude}} / Longitude: {{place.place[0].location.longitude}} <br>
+  Visited: {{place.place[0].dateVisited | date: ('MMMM d, yyyy')}}
   </div>
   <br>
   <!-- Trigger the modal with a button -->

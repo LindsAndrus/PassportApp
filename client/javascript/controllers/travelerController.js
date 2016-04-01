@@ -4,30 +4,35 @@ myApp.controller('travelers', ['$scope', '$location', '$cookies', 'travelersFact
   $scope.travelers = [];
   $scope.cityData = {};
 
+  if($location.path() == '/dashboard'){
+    console.log($cookies.get('user'));
+    getPlaces($cookies.get('user'));
+  };
+
   $scope.addTraveler = function(){
     travelersFactory.create($scope.newTraveler, indexCallback, errorCallback);
     $scope.newTraveler = {};
-    // $scope.userPlaces = 'tis';
   };
 
   function indexCallback(data){
     $cookies.put('user', data.username);
-    $scope.places = data;
-    console.log($scope.places);
     $location.path("/dashboard");
   }
-  
+
   $scope.userStuff = $cookies.get('user');
 
   function errorCallback(errors){
     console.log(errors)
     $scope.errors = errors;
   }
-  //
-  // $scope.getPlaces = function(user){
-  //   travelersFactory.getTravelersPlaces(user, errorCallback)
-  //   $scope.places = errorCallback;
-  // };
+
+  function getPlaces(user){
+    console.log('this is getPlaces');
+    travelersFactory.getTravelersPlaces(user, function(info){
+      console.log('this is info: ', info);
+      $scope.info = info;
+    })
+  };
 
   $scope.addCurrLocation = function(){
     var b = document.getElementById("myCity").value;
