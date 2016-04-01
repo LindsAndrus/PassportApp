@@ -5,15 +5,17 @@ var Travelers = mongoose.model('travelers');
 
 module.exports = (function() {
   return {
-    // EXAMPLE OF GET (INDEX) METHOD //
-    index: function(req, res) {
-      Places.find({}, function(err, results) {
-        if(err) {
-          console.log(err);
-        } else {
-          res.json(results);
-        }
-      })
+    index: function(req, res){
+      console.log(req.body);
+      // Places.find({username: })
+      // .populate('Traveler')
+      // .exec(function(err, data){
+      //   if(err) {
+      //     console.log(err);
+      //   } else {
+      //     res.json(results);
+      //   }
+      // })
     }, // END INDEX
     // EXAMPLE OF CREATE (POST) METHOD //
     create:function(req, res){

@@ -2,14 +2,19 @@ console.log('made it to traveler factory');
 
 var myApp = angular.module('myApp');
 
-myApp.factory('travelersFactory', function($http, $cookies ){
+myApp.factory('travelersFactory', function($http, $cookies){
   var factory = {};
   var travelers = [];
   var cityInfo = {};
 
-  // factory.getTraveler = function(callback){
-  //     callback(travelers);
-  // };
+  factory.getTravelersPlaces = function(user){
+    $http.get('/places', user)
+      .success(function(data){
+        placesBeen = data;
+        console.log(placesBeen);
+        // callback(placesBeen);
+      });
+  };
 
   factory.create = function(info, successCallback, errorCallback){
     // console.log(info);
@@ -27,11 +32,11 @@ myApp.factory('travelersFactory', function($http, $cookies ){
       })
   };
 
-  factory.delete = function(callback){
-    $http.post('/traveler/remove', traveler).then(function(output){
-      travelers.splice(travelers.indexOf(traveler),1);
-    })
-  };
+  // factory.delete = function(callback){
+  //   $http.post('/traveler/remove', traveler).then(function(output){
+  //     travelers.splice(travelers.indexOf(traveler),1);
+  //   })
+  // };
 
   factory.aboutLocation = function(input, callback){
     if(input.value){

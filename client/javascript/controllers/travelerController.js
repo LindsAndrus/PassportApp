@@ -3,13 +3,11 @@ console.log('made it to front-end traveler controller');
 myApp.controller('travelers', ['$scope', '$location', '$cookies', 'travelersFactory', 'placesFactory', function ($scope, $location, $cookies, travelersFactory, placesFactory){
   $scope.travelers = [];
   $scope.cityData = {};
-  // travelersFactory.getTraveler(function(data){
-  //   $scope.travelers = data;
-  // });
   $scope.userStuff = $cookies.get('user');
 
   function indexCallback(data){
     $cookies.put('user', data.username);
+    $scope.getPlaces();
     $location.path("/dashboard");
   }
 
@@ -21,6 +19,12 @@ myApp.controller('travelers', ['$scope', '$location', '$cookies', 'travelersFact
   $scope.addTraveler = function(){
     travelersFactory.create($scope.newTraveler, indexCallback, errorCallback);
       $scope.newTraveler = {};
+  };
+
+  $scope.getPlaces = function(){
+    travelersFactory.getTravelersPlaces($scope.userStuff)
+    // console.log();
+    // $scope.travelers = data;
   };
 
   $scope.addCurrLocation = function(){
@@ -40,9 +44,9 @@ myApp.controller('travelers', ['$scope', '$location', '$cookies', 'travelersFact
     $scope.newPlace = {};
   };
 
-  $scope.deleteTraveler = function(travelers){
-    travelersFactory.delete($scope);
-  };
+  // $scope.deleteTraveler = function(travelers){
+  //   travelersFactory.delete($scope);
+  // };
 
   $scope.logout = function(){
     $cookies.remove('user');
