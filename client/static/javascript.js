@@ -51,8 +51,9 @@ function success(position) {
   });
 }
 
-if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(success);
-} else {
-  error('Geo Location is not supported');
+$("button").on("click", function(){
+  console.log('kello');
+//   navigator.geolocation.getCurrentPosition(success);
+// } else {
+//   error('Geo Location is not supported');
 }
