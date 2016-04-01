@@ -7,6 +7,10 @@ myApp.config(function ($routeProvider){
     templateUrl: 'static/dashboard.html',
     controller: 'travelers'
   })
+  .when('/search',{
+    templateUrl: 'static/place.html'
+    controller: 'travelers'
+  })
   .when('/',{
     templateUrl: 'static/login.html',
     controller: 'travelers'

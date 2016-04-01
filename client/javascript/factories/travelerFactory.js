@@ -33,23 +33,18 @@ myApp.factory('travelersFactory', function($http, $cookies ){
   };
 
   factory.aboutLocation = function(input,callback){
-    // console.log(input.value);
     if(input.value){
-      var location = input.value.replace("," , "").replace(/\s+/g, "%20");
-      var url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query="+input.value+"&key=AIzaSyB5DCeCky-akqzPNWNF8lCVTnO1BTMO7r8";
-      //Ajax request to google server
+
+      var location = input.value;
+      var locationSplit = location.split(",");
+      locationCity = locationSplit[0];
+
+      var url ="https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exintro&titles="+locationCity+"&format=json";
+
       $http.get(url, true).then(function(data){
-        var placeID = data.data.results[0].place_id;
-        console.log(data);
-        if(placeID){
-          url = "https://maps.googleapis.com/maps/api/place/details/json?placeid="+ placeID +"&key=AIzaSyB5DCeCky-akqzPNWNF8lCVTnO1BTMO7r8";
-          //Ajax request to google server
-          $http.get(url, true).then(function(detailData){
-            // console.log(detailData);
-            callback(data,detailData);
-          });
-        }
-      })
+        // var backGround =
+        callback(data);
+      });
     }
 
     function processRequest(e) {
@@ -60,7 +55,7 @@ myApp.factory('travelersFactory', function($http, $cookies ){
       }
     }
     $http.onreadystatechange = processRequest;
-    };
+  };
 
   return factory;
 });
